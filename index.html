@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>⛧ ONYXVIRUS</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<aside class="sidebar">
+  <div class="logo">
+    <h1>⛧ ONYXVIRUS</h1>
+    <span>Browser C2 · v2.0</span>
+  </div>
+
+  <div class="sidebar-section">
+    <h3>Hooked Browsers</h3>
+    <div id="browserList">
+      <div class="browser-item active" data-ip="192.168.1.101" data-os="Chrome 120 · Windows 11">
+        <div class="ip">192.168.1.101</div>
+        <div class="os">Chrome 120 · Windows 11</div>
+        <span class="status">ONLINE</span>
+      </div>
+      <div class="browser-item" data-ip="192.168.1.102" data-os="Firefox 115 · macOS 14">
+        <div class="ip">192.168.1.102</div>
+        <div class="os">Firefox 115 · macOS 14</div>
+        <span class="status">ONLINE</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="sidebar-section">
+    <h3>Quick Actions</h3>
+    <div class="quick-actions">
+      <button onclick="addDemoBrowser()">➕ Add Demo</button>
+      <button onclick="exportLog()">⬇ Export Log</button>
+      <button onclick="clearLogs()">🗑 Clear Logs</button>
+    </div>
+  </div>
+
+  <div class="sidebar-section" style="margin-top:auto; border-top:1px solid #1a2a33;">
+    <h3>Status</h3>
+    <div class="status-block">
+      <div><span class="dot online"></span> Server: RUNNING</div>
+      <div><span class="dot online"></span> Hooks: <span id="hookCount">2</span></div>
+      <div><span class="dot warn"></span> Uptime: <span id="uptime">0s</span></div>
+    </div>
+  </div>
+</aside>
+
+<main class="main">
+  <header class="topbar">
+    <div class="title">⛧ Control Panel — <span id="selectedBrowser">192.168.1.101</span></div>
+    <div class="actions">
+      <button onclick="refreshBrowsers()">🔄 Refresh</button>
+    </div>
+  </header>
+
+  <div class="content">
+    <div class="panel">
+      <div class="tabs">
+        <button class="active" data-tab="terminal" onclick="switchTab('terminal')">Terminal</button>
+        <button data-tab="tools" onclick="switchTab('tools')">Command Modules</button>
+        <button data-tab="logs" onclick="switchTab('logs')">Logs</button>
+        <button data-tab="about" onclick="switchTab('about')">About</button>
+      </div>
+
+      <!-- TERMINAL -->
+      <section id="tab-terminal" class="tab-content active">
+        <div class="terminal-wrap">
+          <div class="terminal-screen" id="termScreen">
+            <div class="term-line"><span class="accent">⛧ ONYXVIRUS TERMINAL v2.0</span></div>
+            <div class="term-line dim">Real crypto · real recon · safe by design</div>
+            <div class="term-line dim">Type <span class="ok">help</span> to see all commands.</div>
+            <div class="term-line dim">─────────────────────────────────────</div>
+          </div>
+          <div class="terminal-inputbar">
+            <span class="prompt">⛧➜</span>
+            <input id="termInput" type="text" autocomplete="off" spellcheck="false"
+                   placeholder="type a command..." autofocus />
+            <span class="blink"></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- COMMAND MODULES -->
+      <section id="tab-tools" class="tab-content">
+        <div class="command-grid" id="commandGrid"></div>
+      </section>
+
+      <!-- LOGS -->
+      <section id="tab-logs" class="tab-content">
+        <div class="log-box" id="logBox">
+          <div class="info">[system] ONYXVIRUS initialized.</div>
+          <div class="info">[system] Awaiting commands...</div>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section id="tab-about" class="tab-content">
+        <div class="about-box">
+          <h2>⛧ ONYXVIRUS v2.0</h2>
+          <p>A BeEF-style control panel with a <strong>real</strong> crypto and recon terminal.</p>
+          <p style="margin-top:10px;">Every command in the Terminal tab is a real working tool:</p>
+          <ul style="margin:8px 0 12px 20px; line-height:1.8;">
+            <li>AES-256-GCM encryption (Web Crypto)</li>
+            <li>SHA-256 / MD5 hashing</li>
+            <li>Base64 / Hex / Morse / ROT13</li>
+            <li>Steganography (hide text in images)</li>
+            <li>Password generator + breach check</li>
+            <li>DNS / subdomain / IP geo (real public data)</li>
+            <li>Local encrypted vault</li>
+          </ul>
+          <p style="color:#ffaa44;">⚠ Everything runs locally. Nothing leaves your browser unless you send it.</p>
+          <p style="margin-top:14px; color:#5588aa; font-size:0.75rem;">
+            Built by OnyxSoul · Breaker of Limits · 🐟🎁
+          </p>
+        </div>
+      </section>
+    </div>
+  </div>
+</main>
+
+<script src="tools/crypto.js"></script>
+<script src="tools/recon.js"></script>
+<script src="tools/vault.js"></script>
+<script src="tools/net.js"></script>
+<script src="terminal.js"></script>
+</body>
+</html>
